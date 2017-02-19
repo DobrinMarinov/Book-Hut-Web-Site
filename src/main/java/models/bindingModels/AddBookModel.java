@@ -8,6 +8,9 @@ public class AddBookModel {
 
     private int pages;
 
+    public AddBookModel() {
+    }
+
     public AddBookModel(String title, String author, int pages) {
         this.title = title;
         this.author = author;

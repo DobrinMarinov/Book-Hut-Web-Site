@@ -8,6 +8,9 @@ public class ViewBookModel {
 
     private int pages;
 
+    public ViewBookModel() {
+    }
+
     public ViewBookModel(String title, String author, int pages) {
         this.title = title;
         this.author = author;

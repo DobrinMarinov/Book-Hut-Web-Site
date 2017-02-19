@@ -37,7 +37,7 @@ public class SignInController extends HttpServlet{
             LoginModel currentLoginModel = this.userService.findByUsernameAndPassword(username, password);
             if(currentLoginModel != null) {
                 HttpSession session = req.getSession();
-                session.setAttribute(Config.USERNAME, username);
+                session.setAttribute(Config.LOGIN_MODEL, currentLoginModel);
                 resp.sendRedirect("/");
             } else {
                 req.getRequestDispatcher("/templates/signin.jsp").forward(req, resp);

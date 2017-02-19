@@ -14,6 +14,9 @@ public class Book {
 
     private Date date;
 
+    public Book() {
+    }
+
     public Book(long id, String title, String author, int pages, Date date) {
         this.id = id;
         this.title = title;
