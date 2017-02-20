@@ -24,25 +24,41 @@ public class BookRepositoryImpl implements BookRepository{
         return bookRepository;
     }
 
-    //TODO: override methods below
-
     @Override
     public void saveBook(Book book) {
-        this.bookRepository.saveBook(book);
+        Book currentBook = this.books
+                .stream()
+                .filter(b -> b.getTitle().equals(book.getTitle()))
+                .findFirst()
+                .orElse(null);
+        if (currentBook != null) {
+            this.books.remove(currentBook);
+        }
+
+        this.books.add(book);
     }
 
     @Override
     public List<Book> getAllBooks() {
-        return null;
+        return this.books;
     }
 
     @Override
     public void deleteBookByTitle(String title) {
-        this.bookRepository.deleteBookByTitle(title);
+        Book book = this.books
+                .stream()
+                .filter(b -> b.getTitle().equals(title)).findFirst()
+                .get();
+        this.books.remove(book);
     }
 
     @Override
     public Book findBookByTitle(String title) {
-        return null;
+        Book book = this.books
+                .stream()
+                .filter(b -> b.getTitle().equals(title)).findFirst()
+                .get();
+        return book;
     }
+
 }

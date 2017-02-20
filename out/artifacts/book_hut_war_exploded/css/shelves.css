@@ -1,4 +1,4 @@
-table, tr, th, td {
-    border: solid 1px deeppink;
+table, th, td {
+    border: 1px solid chocolate;
     border-collapse: collapse;
 }

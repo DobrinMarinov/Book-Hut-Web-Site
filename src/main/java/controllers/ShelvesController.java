@@ -26,6 +26,6 @@ public class ShelvesController extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<ViewBookModel> viewBookModels = this.bookService.getAllBooks();
         req.setAttribute(Config.VIEW_MODEL_LIST, viewBookModels);
-        req.getRequestDispatcher("templates/shelves.jsp");
+        req.getRequestDispatcher("/templates/shelves.jsp").forward(req, resp);
     }
 }

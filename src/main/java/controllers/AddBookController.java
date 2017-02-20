@@ -34,9 +34,7 @@ public class AddBookController extends HttpServlet{
             int pages = Integer.parseInt(req.getParameter("pages"));
             AddBookModel addBookModel = new AddBookModel(title, author, pages);
             this.bookService.saveBook(addBookModel);
-
+            req.getRequestDispatcher("templates/add.jsp").forward(req, resp);
         }
-
-        req.getRequestDispatcher("/templates/add.jsp").forward(req, resp);
     }
 }
